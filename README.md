@@ -1,20 +1,14 @@
-# Iris Classification using MLP From Scratch
+# Iris-MLP-Classifier
 
-A machine learning project that implements **Iris flower classification using a Multi-Layer Perceptron (MLP) from scratch with NumPy**. The main objective of this project is to understand how a neural network works internally by manually implementing the core components instead of using a high-level deep learning framework.
+A machine learning project that implements **Iris flower classification using a Multi-Layer Perceptron (MLP) from scratch with NumPy** to understand the internal working of neural networks without relying on high-level deep learning frameworks.
 
-The project uses the **Iris dataset from the UCI Machine Learning Repository**, containing four input features — sepal length, sepal width, petal length, and petal width — to classify flowers into three species: Iris-setosa, Iris-versicolor, and Iris-virginica. The dataset contains 150 samples, with 120 samples used for training and 30 samples used for testing in the selected train-test split.
+The project uses the **UCI Iris dataset** with four features — sepal length, sepal width, petal length, and petal width — to classify three species: Iris-setosa, Iris-versicolor, and Iris-virginica. The data is encoded, split into **120 training and 30 testing samples**, and standardized using `StandardScaler`.
 
-The complete machine learning process starts with loading the dataset using `ucimlrepo`, separating the input features and target labels, encoding the categorical target classes, splitting the data into training and testing sets, and applying `StandardScaler` for feature normalization. Scaling the features is important because neural networks are sensitive to differences in feature ranges.
+Two architectures, **4-4-3** and **4-8-3**, are evaluated. The MLP manually implements weight initialization, forward propagation, activation functions, loss calculation, backpropagation, gradient updates, and mini-batch training.
 
-The neural network is implemented manually using NumPy. The project initially evaluates a baseline architecture of **4-4-3**, where the four input neurons correspond to the four Iris features, the hidden layer contains four neurons, and the output layer contains three neurons corresponding to the three flower species. A second architecture of **4-8-3** is also evaluated by increasing the hidden layer to eight neurons. This allows the project to examine whether a larger hidden representation improves classification performance.
+Hyperparameter experiments evaluate learning rates **0.001, 0.01, and 0.1**, along with batch sizes **8, 16, and 32**. The selected configuration is **4-8-3 architecture, learning rate 0.1, batch size 16, and 100 epochs**.
 
-The neural network training process includes weight and bias initialization, forward propagation, activation functions, loss calculation, backpropagation, gradient calculation, and parameter updates. During forward propagation, the input features pass through the hidden layer and then the output layer to generate predictions. Backpropagation is used to calculate gradients of the network parameters with respect to the loss, and the parameters are updated using gradient-based optimization. The model is trained using mini-batches rather than processing the entire training dataset in a single update.
-
-Hyperparameter experiments are performed to understand how training parameters affect model performance. Learning rates of **0.001, 0.01, and 0.1** are evaluated, producing accuracies of approximately **33.33%, 66.67%, and 96.67%**, respectively, in the corresponding experiment. Different batch sizes of **8, 16, and 32** are also evaluated to study their effect on training. Based on the experiments, the selected model configuration uses the **4-8-3 architecture, learning rate 0.1, batch size 16, and 100 training epochs**.
-
-The trained model is evaluated using **accuracy, precision, recall, F1-score, and classification reports**. In addition to standard evaluation, the project performs error analysis by comparing predicted and actual test labels and examines training and testing performance to understand the model's generalization behavior.
-
-The project also includes an **interactive prediction interface using `ipywidgets`**. Users can enter sepal length, sepal width, petal length, and petal width values, after which the input is scaled using the same preprocessing pipeline and passed through the trained MLP. The interface returns the predicted Iris species along with the corresponding class probabilities.
+Model performance is evaluated using **accuracy, precision, recall, F1-score, and classification reports**, along with error and generalization analysis. The project also includes an **interactive `ipywidgets` interface** for predicting Iris species and displaying class probabilities from user-provided measurements.
 
 ### Model Architecture
 
