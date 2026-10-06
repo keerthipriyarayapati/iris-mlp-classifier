@@ -1,4 +1,4 @@
-# Iris-MLP-Classifier
+# Iris-mlp-classifier
 
 A machine learning project that implements **Iris flower classification using a Multi-Layer Perceptron (MLP) from scratch with NumPy** to understand the internal working of neural networks without relying on high-level deep learning frameworks.
 
