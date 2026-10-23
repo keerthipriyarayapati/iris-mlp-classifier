@@ -456,6 +456,13 @@
 
   </div>
 
+  <script>
+    window.FLASK_STATIC_IMAGES = {
+      'Iris-setosa': "{{ url_for('static', filename='iris_setosa.jpg') }}",
+      'Iris-versicolor': "{{ url_for('static', filename='iris_versicolor.jpg') }}",
+      'Iris-virginica': "{{ url_for('static', filename='iris_virginica.jpg') }}"
+    };
+  </script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

@@ -185,14 +185,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Confidence Score
     confidenceValEl.textContent = formatPercentage(confidence);
 
-    // Update Image with gentle fade transition
-    if (data.image_url) {
+    // Update Image with robust resolution and gentle fade transition
+    const targetImgUrl = (data && data.image_url)
+      ? data.image_url
+      : (window.FLASK_STATIC_IMAGES && window.FLASK_STATIC_IMAGES[predictedSpecies])
+        ? window.FLASK_STATIC_IMAGES[predictedSpecies]
+        : `/static/${predictedSpecies.toLowerCase().replace('-', '_')}.jpg`;
+
+    if (flowerImgEl && targetImgUrl) {
       flowerImgEl.style.opacity = '0.4';
       setTimeout(() => {
-        flowerImgEl.src = data.image_url;
+        flowerImgEl.src = targetImgUrl;
         flowerImgEl.alt = `${predictedSpecies} flower`;
         flowerImgEl.style.opacity = '1';
-      }, 150);
+      }, 100);
     }
 
     // Update all 3 horizontal probability bars

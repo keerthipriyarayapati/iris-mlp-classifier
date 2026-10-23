@@ -5,7 +5,7 @@ by the custom NumPy Multi-Layer Perceptron (MLP) trained from Iris.ipynb.
 """
 
 import os
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for
 from model import model
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -83,12 +83,21 @@ def predict():
             petal_width=parsed_values['petal_width']
         )
 
+        # Resolve authoritative static image URL for predicted species via Flask url_for
+        species_image_map = {
+            'Iris-setosa': 'iris_setosa.jpg',
+            'Iris-versicolor': 'iris_versicolor.jpg',
+            'Iris-virginica': 'iris_virginica.jpg'
+        }
+        image_file = species_image_map.get(result['prediction'], 'iris_setosa.jpg')
+        image_url = url_for('static', filename=image_file)
+
         return jsonify({
             'success': True,
             'prediction': result['prediction'],
             'confidence': result['confidence'],
             'probabilities': result['probabilities'],
-            'image_url': result['image_url'],
+            'image_url': image_url,
             'inputs': parsed_values
         })
 

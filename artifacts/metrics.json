@@ -1,0 +1,47 @@
+{
+  "dataset": {
+    "name": "UCI Iris Dataset",
+    "samples": 150,
+    "features_count": 4,
+    "features": [
+      "sepal length",
+      "sepal width",
+      "petal length",
+      "petal width"
+    ],
+    "classes_count": 3,
+    "classes": [
+      "Iris-setosa",
+      "Iris-versicolor",
+      "Iris-virginica"
+    ]
+  },
+  "model": {
+    "name": "Multi-Layer Perceptron (MLP)",
+    "implementation": "NumPy (from scratch)",
+    "input_neurons": 4,
+    "hidden_neurons": 8,
+    "output_neurons": 3,
+    "architecture": "4-8-3",
+    "hidden_activation": "ReLU",
+    "output_activation": "Softmax"
+  },
+  "training": {
+    "learning_rate": 0.1,
+    "batch_size": 16,
+    "epochs": 100,
+    "optimization": "Mini-batch Gradient Descent",
+    "random_seed": 42
+  },
+  "performance": {
+    "accuracy": "96.67%",
+    "precision": "96.97%",
+    "recall": "96.67%",
+    "f1_score": "96.66%",
+    "test_samples": 30,
+    "raw_accuracy": 0.9666666666666667,
+    "raw_precision": 0.9696969696969696,
+    "raw_recall": 0.9666666666666667,
+    "raw_f1_score": 0.9665831244778613
+  }
+}
