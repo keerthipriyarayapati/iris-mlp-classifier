@@ -1,6 +1,0 @@
-Flask>=2.2.0
-numpy>=1.24.0
-pandas>=1.5.0
-scikit-learn>=1.2.0
-ucimlrepo>=0.0.7
-Pillow>=9.5.0
